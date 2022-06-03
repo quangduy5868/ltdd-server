@@ -26,7 +26,7 @@ app.get("/scores", (request, response) => {
       console.log(err);
       response.end();
     } else {
-      response.json(res?.rows);
+      if (res.rows) response.json(res.rows);
       response.end();
     }
   });
