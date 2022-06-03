@@ -19,7 +19,7 @@ const pool = new Pool({
 app.use(bodyParser.json());
 app.set("port", process.env.PORT || 3000);
 
-app.get("/", (request, response) => {
+app.get("/scores", (request, response) => {
   pool.query(`SELECT * FROM Scores;`, (err, res) => {
     if (err) {
       console.log("Error - Failed to select all from Scores");
@@ -32,7 +32,7 @@ app.get("/", (request, response) => {
   });
 });
 
-app.post("/", (request, response) => {
+app.post("/scores", (request, response) => {
   const { username, point, game } = request.body;
 
   pool.query(
